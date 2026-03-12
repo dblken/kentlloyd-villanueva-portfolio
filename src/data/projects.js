@@ -1,44 +1,51 @@
+import burgerImg from '../assets/image/graphic design/Burger.png';
+import perfumeImg from '../assets/image/graphic design/Perfume.png';
+import sojoImg from '../assets/image/graphic design/Sojo.png';
+import digitalImg from '../assets/image/digital/digital.png';
+import sampleImg from '../assets/image/digital/sample.png';
+import webImg from '../assets/image/digital/web.png';
+
 export const projects = [
   {
     id: 1,
-    title: "Brand Identity - Zenith",
-    category: "Branding",
-    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bde7?auto=format&fit=crop&q=80&w=800",
-    description: "Modern branding for a tech startup."
+    title: "Burger Visual",
+    category: "Graphic Design",
+    image: burgerImg,
+    description: "Eye-catching food visual design crafted for marketing and branding."
   },
   {
     id: 2,
-    title: "Social Media Campaign",
-    category: "Social Media",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-    description: "Dynamic visuals for marketing."
+    title: "Perfume Ad Design",
+    category: "Graphic Design",
+    image: perfumeImg,
+    description: "Elegant product advertisement design for a premium perfume brand."
   },
   {
     id: 3,
-    title: "Premium Ad Concept",
-    category: "Ads",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800",
-    description: "High-impact advertising design."
+    title: "Sojo Creative",
+    category: "Graphic Design",
+    image: sojoImg,
+    description: "Bold and creative visual identity design."
   },
   {
     id: 4,
-    title: "Eco-Friendly Website",
-    category: "UI Design",
-    image: "https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&q=80&w=800",
-    description: "Minimalist UI for a green brand."
+    title: "Digital Art",
+    category: "Digital",
+    image: digitalImg,
+    description: "A striking digital artwork showcasing creative illustration skills."
   },
   {
     id: 5,
-    title: "Mobile App Interface",
-    category: "UI Design",
-    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800",
-    description: "Sleek mobile app UX/UI design."
+    title: "Digital Sample",
+    category: "Digital",
+    image: sampleImg,
+    description: "Digital design sample demonstrating layout and visual composition."
   },
   {
     id: 6,
-    title: "Modern Rebranding",
-    category: "Branding",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800",
-    description: "Complete visual identity overhaul."
-  }
+    title: "Web Visual",
+    category: "Digital",
+    image: webImg,
+    description: "Web-focused digital visual design for modern online platforms."
+  },
 ];
