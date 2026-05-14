@@ -4,6 +4,10 @@ import sojoImg from '../assets/image/graphic design/Sojo.png';
 import digitalImg from '../assets/image/digital/digital.png';
 import sampleImg from '../assets/image/digital/sample.png';
 import webImg from '../assets/image/digital/web.png';
+import safeSpaceImg from '../assets/image/safe space.png';
+import childrensRightsImg from '../assets/image/Children’S Rights.png';
+import coloringBookImg from '../assets/image/coloring book.png';
+import goldenMountainImg from '../assets/image/golden mountain.png';
 
 export const projects = [
   {
@@ -47,5 +51,37 @@ export const projects = [
     category: "Digital",
     image: webImg,
     description: "Web-focused digital visual design for modern online platforms."
+  },
+  {
+    id: 7,
+    title: "Safe Space",
+    category: "Graphic Design",
+    image: safeSpaceImg,
+    description: "A children's book layout designed to feel warm, reassuring, and visually engaging.",
+    url: "https://canva.link/6j0h3ote8cwct45"
+  },
+  {
+    id: 8,
+    title: "Children's Rights",
+    category: "Graphic Design",
+    image: childrensRightsImg,
+    description: "An educational children's book page focused on rights awareness through friendly visuals.",
+    url: "https://canva.link/z2uwuw7rkcykxwt"
+  },
+  {
+    id: 9,
+    title: "Coloring Book",
+    category: "Graphic Design",
+    image: coloringBookImg,
+    description: "A playful coloring book design created to encourage creativity and hands-on learning.",
+    url: "https://canva.link/ffavupcpby9umcy"
+  },
+  {
+    id: 10,
+    title: "Golden Mountain",
+    category: "Graphic Design",
+    image: goldenMountainImg,
+    description: "A storybook-style children's book visual with a bright, imaginative composition.",
+    url: "https://canva.link/fsvgx7yyxsdqbk5"
   },
 ];

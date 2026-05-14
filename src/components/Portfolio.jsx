@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/projects';
-import { FiX, FiChevronLeft, FiChevronRight, FiZoomIn } from 'react-icons/fi';
+import { FiX, FiChevronLeft, FiChevronRight, FiZoomIn, FiArrowRight } from 'react-icons/fi';
 
 const Portfolio = () => {
   const [filter, setFilter] = useState('All');
@@ -83,6 +83,17 @@ const Portfolio = () => {
                     <span className="text-primary text-sm font-bold uppercase tracking-widest">{project.category}</span>
                     <h3 className="text-xl font-outfit font-bold text-white">{project.title}</h3>
                     <p className="text-gray-300 text-sm">{project.description}</p>
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-primary hover:text-primary"
+                      >
+                        View Project <FiArrowRight />
+                      </a>
+                    )}
                   </motion.div>
                 </div>
               </motion.div>
@@ -138,6 +149,16 @@ const Portfolio = () => {
                 <span className="text-primary text-xs font-bold uppercase tracking-widest">{filteredProjects[lightboxIndex]?.category}</span>
                 <h3 className="text-xl font-outfit font-bold text-white mt-1">{filteredProjects[lightboxIndex]?.title}</h3>
                 <p className="text-gray-400 text-sm mt-1">{filteredProjects[lightboxIndex]?.description}</p>
+                {filteredProjects[lightboxIndex]?.url && (
+                  <a
+                    href={filteredProjects[lightboxIndex].url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+                  >
+                    Open Project <FiArrowRight />
+                  </a>
+                )}
               </div>
 
               {/* Dot indicators */}

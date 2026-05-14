@@ -7,6 +7,7 @@ import attendance1 from '../assets/image/attendance_1.jpeg';
 import attendance2 from '../assets/image/attendance_2.jpeg';
 import mobile1 from '../assets/image/mobile_1.jpg';
 import mobile2 from '../assets/image/mobile_2.jpg';
+import printflowImg from '../assets/image/printflow.png';
 
 // Auto-cycling image component for laptop mockup
 const CyclingLaptopImage = ({ images, alt }) => {
@@ -147,6 +148,65 @@ const Projects = () => {
           </div>
 
           {/* Project 2 — Attendance System (no link) */}
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 relative"
+            >
+              <div className="relative mx-auto max-w-[600px] bg-dark-bg border-[12px] border-dark-border rounded-t-xl overflow-hidden shadow-2xl">
+                <div className="aspect-video relative overflow-hidden bg-gray-900">
+                  <img
+                    src={printflowImg}
+                    alt="PrintFlow"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+              <div className="h-4 bg-dark-border w-[110%] -ml-[5%] rounded-b-xl" />
+              <div className="h-2 bg-dark-border w-[20%] mx-auto rounded-b-xl" />
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="absolute -top-10 -left-10 glass p-4 rounded-xl hidden md:block"
+              >
+                <FiMonitor className="text-3xl text-secondary" />
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:w-1/2"
+            >
+              <span className="text-secondary font-bold tracking-widest uppercase text-sm">Web Project</span>
+              <h3 className="text-3xl md:text-4xl font-outfit font-bold mt-4 mb-6">PrintFlow</h3>
+              <p className="text-gray-400 text-lg mb-8 font-inter">
+                A responsive business website for Mr & Mrs PrintFlow that highlights print services, guides customers through the ordering journey, and makes it easy to explore offerings on any device.
+              </p>
+              <ul className="space-y-4 mb-10">
+                {['Service-focused landing experience', 'Responsive layout for desktop and mobile', 'Clear call-to-action flow for inquiries and orders', 'Clean presentation for products and print solutions'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-gray-300">
+                    <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://mrandmrsprintflow.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 font-bold text-secondary hover:text-white transition-colors group"
+              >
+                Visit Live Site <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </motion.div>
+          </div>
+
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
