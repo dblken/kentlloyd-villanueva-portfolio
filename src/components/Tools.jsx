@@ -43,16 +43,16 @@ const Tools = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.1 }}
-              className="relative group flex flex-col items-center gap-3"
+              className="relative group flex flex-col items-center gap-3 z-0 hover:z-50"
             >
               <div 
                 className="w-20 h-20 md:w-24 md:h-24 rounded-full glass flex items-center justify-center text-4xl transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group-hover:border-primary/50"
                 style={{ color: tool.color }}
               >
                 <tool.icon />
-                
+
                 {/* Tooltip */}
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold whitespace-nowrap z-20">
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold whitespace-nowrap z-50 pointer-events-none">
                   {tool.name}
                 </div>
               </div>
