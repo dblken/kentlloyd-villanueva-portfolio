@@ -8,8 +8,6 @@ import safeSpaceImg from '../assets/image/safe space.png';
 import childrensRightsImg from '../assets/image/Children’S Rights.png';
 import coloringBookImg from '../assets/image/coloring book.png';
 import goldenMountainImg from '../assets/image/golden mountain.png';
-import video1 from '../assets/video/Video 1.mp4';
-import video2 from '../assets/video/Video 2.mp4';
 
 export const projects = [
   {
@@ -85,21 +83,5 @@ export const projects = [
     image: goldenMountainImg,
     description: "A storybook-style children's book visual with a bright, imaginative composition.",
     url: "https://canva.link/fsvgx7yyxsdqbk5"
-  },
-  {
-    id: 11,
-    title: "Creative Reel",
-    category: "Video Editing",
-    type: "video",
-    video: video1,
-    description: "Short-form reel with dynamic pacing, smooth transitions, and engaging visual storytelling."
-  },
-  {
-    id: 12,
-    title: "Social Media Reel",
-    category: "Video Editing",
-    type: "video",
-    video: video2,
-    description: "Vertical reel crafted for social platforms with polished cuts, color grading, and motion effects."
   },
 ];

@@ -4,6 +4,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Tools from './components/Tools';
 import Portfolio from './components/Portfolio';
+import VideoReels from './components/VideoReels';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -19,6 +20,7 @@ function App() {
       <Skills />
       <Tools />
       <Portfolio />
+      <VideoReels />
       <Projects />
       <Contact />
       <Footer />
