@@ -10,6 +10,7 @@ const tools = [
   { name: 'ChatGPT', icon: SiOpenai, color: '#10a37f' },
   { name: 'Photoshop', icon: FaPhotoFilm, color: '#31a8ff' },
   { name: 'Illustrator', icon: BiLogoAdobe, color: '#ff9a00' },
+  { name: 'InDesign', icon: BiLogoAdobe, color: '#ff3366' },
   { name: 'Canva', icon: SiCanva, color: '#00c4cc' },
   { name: 'Figma', icon: SiFigma, color: '#f24e1e' },
   { name: 'Premiere Pro', icon: MdOutlineSlowMotionVideo, color: '#9999ff' },
