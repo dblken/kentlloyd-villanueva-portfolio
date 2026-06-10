@@ -8,6 +8,13 @@ import safeSpaceImg from '../assets/image/safe space.png';
 import childrensRightsImg from '../assets/image/Children’S Rights.png';
 import coloringBookImg from '../assets/image/coloring book.png';
 import goldenMountainImg from '../assets/image/golden mountain.png';
+import plannerPage1 from '../assets/image/book/successfull_planner/1.png';
+import plannerPage2 from '../assets/image/book/successfull_planner/2.png';
+import plannerPage3 from '../assets/image/book/successfull_planner/3.png';
+import plannerPage4 from '../assets/image/book/successfull_planner/4.png';
+import plannerPage5 from '../assets/image/book/successfull_planner/5.png';
+import plannerPage6 from '../assets/image/book/successfull_planner/6.png';
+import plannerPdf from '../assets/image/book/successfull_planner/Success_PLanner.pdf';
 
 export const projects = [
   {
@@ -83,5 +90,21 @@ export const projects = [
     image: goldenMountainImg,
     description: "A storybook-style children's book visual with a bright, imaginative composition.",
     url: "https://canva.link/fsvgx7yyxsdqbk5"
+  },
+  {
+    id: 11,
+    title: "Successful Planner",
+    category: "Workbook",
+    image: plannerPage1,
+    gallery: [
+      plannerPage1,
+      plannerPage2,
+      plannerPage3,
+      plannerPage4,
+      plannerPage5,
+      plannerPage6
+    ],
+    pdfUrl: plannerPdf,
+    description: "A polished workbook planner layout with clean pages for practical goal setting and reflection."
   },
 ];
