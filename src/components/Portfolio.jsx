@@ -4,16 +4,11 @@ import { projects } from '../data/projects';
 import { FiX, FiChevronLeft, FiChevronRight, FiZoomIn, FiArrowRight } from 'react-icons/fi';
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
-  const categories = ['All', 'Ads & Branding', 'Book Layouts', 'Workbook', 'Digital'];
+  const sections = ['Ads & Branding', 'Book Layouts', 'Workbook', 'Digital'];
 
-  const filteredProjects = filter === 'All'
-    ? projects
-    : projects.filter(project => project.category === filter);
-
-  const activeProject = lightboxIndex !== null ? filteredProjects[lightboxIndex] : null;
+  const activeProject = lightboxIndex !== null ? projects[lightboxIndex] : null;
   const activeGallery = activeProject?.gallery?.length ? activeProject.gallery : activeProject?.image ? [activeProject.image] : [];
   const currentImage = activeGallery[galleryIndex] || activeProject?.image;
   const isGalleryProject = activeGallery.length > 1;
@@ -24,19 +19,13 @@ const Portfolio = () => {
   };
   const closeLightbox = () => setLightboxIndex(null);
 
-  const handleFilterChange = (category) => {
-    setFilter(category);
-    setLightboxIndex(null);
-    setGalleryIndex(0);
-  };
-
   const prev = () => {
     if (isGalleryProject) {
       setGalleryIndex((i) => (i - 1 + activeGallery.length) % activeGallery.length);
       return;
     }
 
-    setLightboxIndex((i) => (i - 1 + filteredProjects.length) % filteredProjects.length);
+    setLightboxIndex((i) => (i - 1 + projects.length) % projects.length);
     setGalleryIndex(0);
   };
 
@@ -46,7 +35,7 @@ const Portfolio = () => {
       return;
     }
 
-    setLightboxIndex((i) => (i + 1) % filteredProjects.length);
+    setLightboxIndex((i) => (i + 1) % projects.length);
     setGalleryIndex(0);
   };
 
@@ -69,68 +58,80 @@ const Portfolio = () => {
             Graphic <span className="gradient-text">Design</span>
           </motion.h2>
           <p className="text-gray-400 font-inter max-w-2xl mx-auto">
-            Static design work — posters, digital art, and book layouts. Filter by category or click to view full size.
+            Static design work — posters, digital art, book layouts, and workbook projects organized by creative focus.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleFilterChange(cat)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                filter === cat
-                  ? 'bg-primary text-white'
-                  : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <div className="space-y-16">
+          {sections.map((section) => {
+            const sectionProjects = projects.filter(project => project.category === section);
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+            return (
               <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                key={section}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.4 }}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden glass cursor-pointer"
-                onClick={() => openLightbox(index)}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-
-                <div className="absolute inset-0 bg-dark-bg/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
-                  <motion.div className="space-y-3">
-                    <FiZoomIn className="text-4xl text-white mx-auto mb-2" />
-                    <span className="text-primary text-sm font-bold uppercase tracking-widest">{project.category}</span>
-                    <h3 className="text-xl font-outfit font-bold text-white">{project.title}</h3>
-                    <p className="text-gray-300 text-sm">{project.description}</p>
-                    {(project.url || project.pdfUrl) && (
-                      <a
-                        href={project.url || project.pdfUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-primary hover:text-primary"
-                      >
-                        {project.pdfUrl ? 'Visit PDF' : 'View Project'} <FiArrowRight />
-                      </a>
-                    )}
-                  </motion.div>
+                <div className="mb-6 flex flex-col gap-2 border-b border-white/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <span className="text-primary text-xs font-bold uppercase tracking-widest">Graphic Design</span>
+                    <h3 className="mt-1 text-2xl font-outfit font-bold text-white md:text-3xl">{section}</h3>
+                  </div>
+                  <span className="text-sm text-gray-500">{sectionProjects.length} project{sectionProjects.length === 1 ? '' : 's'}</span>
                 </div>
+
+                <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <AnimatePresence mode="popLayout">
+                    {sectionProjects.map((project) => {
+                      const projectIndex = projects.findIndex(item => item.id === project.id);
+
+                      return (
+                        <motion.div
+                          key={project.id}
+                          layout
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.9 }}
+                          transition={{ duration: 0.4 }}
+                          className="group relative aspect-[4/3] rounded-2xl overflow-hidden glass cursor-pointer"
+                          onClick={() => openLightbox(projectIndex)}
+                        >
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+
+                          <div className="absolute inset-0 bg-dark-bg/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
+                            <motion.div className="space-y-3">
+                              <FiZoomIn className="text-4xl text-white mx-auto mb-2" />
+                              <span className="text-primary text-sm font-bold uppercase tracking-widest">{project.category}</span>
+                              <h3 className="text-xl font-outfit font-bold text-white">{project.title}</h3>
+                              <p className="text-gray-300 text-sm">{project.description}</p>
+                              {(project.url || project.pdfUrl) && (
+                                <a
+                                  href={project.url || project.pdfUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-primary hover:text-primary"
+                                >
+                                  {project.pdfUrl ? 'Visit PDF' : 'View Project'} <FiArrowRight />
+                                </a>
+                              )}
+                            </motion.div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </AnimatePresence>
+                </motion.div>
               </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+            );
+          })}
+        </div>
       </div>
 
       <AnimatePresence>
@@ -199,7 +200,7 @@ const Portfolio = () => {
               </div>
 
               <div className="flex gap-2 mt-2">
-                {(isGalleryProject ? activeGallery : filteredProjects).map((_, i) => (
+                {(isGalleryProject ? activeGallery : projects).map((_, i) => (
                   <button
                     key={i}
                     onClick={() => isGalleryProject ? setGalleryIndex(i) : setLightboxIndex(i)}
