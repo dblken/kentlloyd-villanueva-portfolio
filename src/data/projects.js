@@ -20,21 +20,21 @@ export const projects = [
   {
     id: 1,
     title: "Burger Visual",
-    category: "Graphic Design",
+    category: "Ads & Branding",
     image: burgerImg,
     description: "Eye-catching food visual design crafted for marketing and branding."
   },
   {
     id: 2,
     title: "Perfume Ad Design",
-    category: "Graphic Design",
+    category: "Ads & Branding",
     image: perfumeImg,
     description: "Elegant product advertisement design for a premium perfume brand."
   },
   {
     id: 3,
     title: "Sojo Creative",
-    category: "Graphic Design",
+    category: "Ads & Branding",
     image: sojoImg,
     description: "Bold and creative visual identity design."
   },
@@ -62,7 +62,7 @@ export const projects = [
   {
     id: 7,
     title: "Safe Space",
-    category: "Graphic Design",
+    category: "Book Layouts",
     image: safeSpaceImg,
     description: "A children's book layout designed to feel warm, reassuring, and visually engaging.",
     url: "https://canva.link/6j0h3ote8cwct45"
@@ -70,7 +70,7 @@ export const projects = [
   {
     id: 8,
     title: "Children's Rights",
-    category: "Graphic Design",
+    category: "Book Layouts",
     image: childrensRightsImg,
     description: "An educational children's book page focused on rights awareness through friendly visuals.",
     url: "https://canva.link/z2uwuw7rkcykxwt"
@@ -78,7 +78,7 @@ export const projects = [
   {
     id: 9,
     title: "Coloring Book",
-    category: "Graphic Design",
+    category: "Book Layouts",
     image: coloringBookImg,
     description: "A playful coloring book design created to encourage creativity and hands-on learning.",
     url: "https://canva.link/ffavupcpby9umcy"
@@ -86,7 +86,7 @@ export const projects = [
   {
     id: 10,
     title: "Golden Mountain",
-    category: "Graphic Design",
+    category: "Book Layouts",
     image: goldenMountainImg,
     description: "A storybook-style children's book visual with a bright, imaginative composition.",
     url: "https://canva.link/fsvgx7yyxsdqbk5"

@@ -7,7 +7,7 @@ const Portfolio = () => {
   const [filter, setFilter] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
-  const categories = ['All', 'Graphic Design', 'Workbook', 'Digital'];
+  const categories = ['All', 'Ads & Branding', 'Book Layouts', 'Workbook', 'Digital'];
 
   const filteredProjects = filter === 'All'
     ? projects
@@ -23,6 +23,12 @@ const Portfolio = () => {
     setGalleryIndex(0);
   };
   const closeLightbox = () => setLightboxIndex(null);
+
+  const handleFilterChange = (category) => {
+    setFilter(category);
+    setLightboxIndex(null);
+    setGalleryIndex(0);
+  };
 
   const prev = () => {
     if (isGalleryProject) {
@@ -71,7 +77,7 @@ const Portfolio = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setFilter(cat)}
+              onClick={() => handleFilterChange(cat)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 filter === cat
                   ? 'bg-primary text-white'
